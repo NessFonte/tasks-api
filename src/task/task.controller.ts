@@ -1,4 +1,4 @@
-import { Controller, Query, Post, Get, Put, Delete, Body, Param, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Controller, Query, Post, Get, Put, Delete, Body, Param, UsePipes, ValidationPipe, HttpException, HttpStatus, BadRequestException } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { TaskDTO } from './dto/task.dto';
 
@@ -8,7 +8,10 @@ export class TaskController {
 
     @Post()
     create(@Body() taskDto: TaskDTO) {
-        return this.taskService.create(taskDto);
+        //throw new HttpException('Error en la Peticion', HttpStatus.BAD_REQUEST);
+        throw new BadRequestException('Error en la Peticion');
+
+        //return this.taskService.create(taskDto);
     }
 
     @Get()
