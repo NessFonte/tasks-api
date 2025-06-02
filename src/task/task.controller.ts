@@ -1,4 +1,4 @@
-import { Controller, Query, Post, Get, Put, Delete, Body, Param } from '@nestjs/common';
+import { Controller, Query, Post, Get, Put, Delete, Body, Param, UsePipes, ValidationPipe } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { TaskDTO } from './dto/task.dto';
 
