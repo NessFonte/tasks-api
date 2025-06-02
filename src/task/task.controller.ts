@@ -9,7 +9,11 @@ export class TaskController {
     @Post()
     create(@Body() taskDto: TaskDTO) {
         //throw new HttpException('Error en la Peticion', HttpStatus.BAD_REQUEST);
-        throw new BadRequestException('Error en la Peticion');
+        //throw new BadRequestException('Error en la Peticion');
+
+        return new Promise((resolve, reject) => {
+            setTimeout(() => reject('Something was wrong!'), 15000);
+        }) 
 
         //return this.taskService.create(taskDto);
     }
